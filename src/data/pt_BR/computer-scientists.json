@@ -1,0 +1,59 @@
+{
+  "name": "Cientistas da Computação",
+  "cards": {
+    "ada-lovelace": {
+      "name": "Ada Lovelace",
+      "description": "Ada Augusta King, Condessa de Lovelace, atualmente conhecida como Ada Lovelace, foi uma matemática e escritora inglesa. Hoje é reconhecida principalmente por ter escrito o primeiro algoritmo para ser processado por uma máquina, a máquina analítica de Charles Babbage.",
+      "key-data": {
+        "birthdate": "10/12/1815",
+        "birthcontry": "Reino Unido"
+      },
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Ada_lovelace.jpg/200px-Ada_lovelace.jpg"
+    },
+    "alan-turing": {
+      "name": "Alan Turing",
+      "description": "Alan Mathison Turing foi um matemático, lógico, criptoanalista e cientista da computação britânico. Foi influente no desenvolvimento da ciência da computação e na formalização do conceito de algoritmo e computação com a máquina de Turing, desempenhando um papel importante na criação do computador moderno. Foi também pioneiro na inteligência artificial e na ciência da computação. É conhecido como o pai da computação.",
+      "key-data": {
+        "birthdate": "23/06/1912",
+        "birthcontry": "Reino Unido"
+      },
+      "image": "https://upload.wikimedia.org/wikipedia/pt/c/c8/Alan_Turing_photo.jpg"
+    },
+    "alan-kay": {
+      "name": "Alan Kay",
+      "description": "",
+      "key-data": {
+        "birthdate": "17/05/1940",
+        "birthcontry": "Estados Unidos da América"
+      },
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Alan_Kay_%283097597186%29_%28cropped%29.jpg/197px-Alan_Kay_%283097597186%29_%28cropped%29.jpg"
+    },
+    "anita-borg": {
+      "name": "Anita Borg",
+      "description": "Anita Borg foi uma cientista da computação estadunidense. Ele fundou o Institute for Women and Technology (chamado agora Anita Borg Institute for Women and Technology) e o prêmio Grace Hopper Celebration of Women in Computing.",
+      "key-data": {
+        "birthdate": "17/01/1949",
+        "birthcontry": "Estados Unidos da América"
+      },
+      "image": "https://upload.wikimedia.org/wikipedia/en/e/e1/Anita_Borg.jpg"
+    },
+    "kathleen-booth": {
+      "name": "Kathleen Booth",
+      "description": "Kathleen Booth (1922) é creditada como a escritora da primeira linguagem de montagem e pelo projeto do montador para o primeiro sistema de computador do Birkbeck College da University of London.",
+      "key-data": {
+        "birthdate": "1922",
+        "birthcontry": "Reino Unido"
+      },
+      "image": "http://www.computinghistory.org.uk/userdata/images/large/PRODPIC-32489.jpg"
+    },
+    "barbara-liskov": {
+      "name": "Barbara Liskov",
+      "description": "Barbara Liskov, nascida Barbara Jane Huberman, é uma cientista da computação estadunidense. Barbara recebeu em 2008 o Prêmio Turing da ACM por seu trabalho na concepção de linguagens de programação e de metodologia de software que levaram ao desenvolvimento da programação orientada para objetos.",
+      "key-data": {
+        "birthdate": "07/11/1939",
+        "birthcontry": "Reino Unido"
+      },
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Barbara_Liskov_MIT_computer_scientist_2010.jpg/171px-Barbara_Liskov_MIT_computer_scientist_2010.jpg"
+    }
+  }
+}

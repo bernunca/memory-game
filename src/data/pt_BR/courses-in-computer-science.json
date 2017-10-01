@@ -1,0 +1,29 @@
+{
+  "name": "Disciplinas do Curso de Ciência da Computação",
+  "cards": [
+    {
+      "name": "",
+      "description": "",
+      "key-data": {
+        "semester": 1
+      },
+      "image": "https://...wikicommons..."
+    },
+    {
+      "name": "",
+      "description": "",
+      "key-data": {
+        "semester": 1
+      },
+      "image": "https://...wikicommons..."
+    },
+    {
+      "name": "",
+      "description": "",
+      "key-data": {
+        "semester": 2
+      },
+      "image": "https://...wikicommons..."
+    }
+  ]
+}

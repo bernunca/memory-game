@@ -1,0 +1,11 @@
+{
+  "site.title": "Jogo da Memória",
+  "site.setofcards": "Conjuntos de cartas",
+  "site.nosetofcards": "Nenhum conjunto de cartas",
+  "site.languages": {
+    "pt_BR": "Português",
+    "en_US": "Inglês"
+  },
+  "card.key_data.birthdate": "Data de nascimento",
+  "card.key_data.birthcontry": "País de nascimento"
+}

@@ -1,0 +1,9 @@
+{
+  "site.title": "Memory Game",
+  "site.setofcards": "Set of Cards",
+  "site.nosetofcards": "No set of cards",
+  "site.languages": {
+    "pt_BR": "Portuguese",
+    "en_US": "English"
+  }
+}

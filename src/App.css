@@ -1,0 +1,51 @@
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+body {
+    padding: 10px;
+    background-image: url(https://2.bp.blogspot.com/-Rdf9i60Zbsc/Ulm-BUtYbYI/AAAAAAAAFVM/mmZ265JX1rI/s1600/blue-on-white-background-pattern.jpg);
+}
+
+.card {
+    width: 160px;
+    height: 200px;
+    object-position: center;
+    object-fit: none;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    box-shadow: #999999 2px 2px 2px;
+    margin: 8px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    background-image: url(https://avatars0.githubusercontent.com/u/24419737);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #FEFEFE;
+}
+
+.card-title {
+    font-size: 2em;
+    color: white;
+    text-shadow: #333333 2px 2px 2px;
+    position: relative;
+    /*display: none;*/
+}
+
+/*
+.flip .card.flipped {
+    -webkit-transform: rotatex(-180deg);
+}
+
+.flip .card {
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: 0.5s;
+    -webkit-transform: rotatex(-180deg);
+}
+*/
