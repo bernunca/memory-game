@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
-import './App.css';
-import Card from './Card.js';
-import Data from './data/pt_BR/computer-scientists.json';
+import React, { Component } from "react";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import AppBar from "material-ui/AppBar";
+import "./App.css";
+import Card from "./Card.js";
+import Data from "./data/pt_BR/computer-scientists.json";
 import shuffle from "shuffle-array";
 
 let separator = ":";
 
 class App extends Component {
-
   generateCards() {
-
     // TODO: gerar quantidade menor de cartas do que existe na base
     var cards = [];
 
     for (let i in Data.cards) {
-      cards.push({"set": "a", "index": i, "data": Data.cards[i], "gameState": 1});
-      cards.push({"set": "b", "index": i, "data": Data.cards[i], "gameState": 1});
+      cards.push({ set: "a", index: i, data: Data.cards[i], gameState: 1 });
+      cards.push({ set: "b", index: i, data: Data.cards[i], gameState: 1 });
     }
 
     return shuffle(cards);
@@ -33,7 +33,6 @@ class App extends Component {
   }
 
   handleClick(set, key, index, id) {
-
     if (this.state.cards[index].gameState > 2 || this.state.wait) {
       return;
     }
@@ -41,7 +40,7 @@ class App extends Component {
     this.seeCard(index);
 
     if (!this.state.lastCard) {
-      this.setLastCard({key: key, set: set, index: index});
+      this.setLastCard({ key: key, set: set, index: index });
 
       return;
     }
@@ -76,7 +75,6 @@ class App extends Component {
       }.bind(this),
       400
     );
-
   }
 
   setLastCard(newLastCard) {
@@ -136,27 +134,25 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <header>
-          <h1>Jogo da Memória <span>{this.state.name}</span></h1>
-        </header>
+      <MuiThemeProvider>
+        <AppBar
+          showMenuIconButton={false}
+          title={`Jogo da Memória ${this.state.name}`}
+        />
         <div className="row">
-          {
-            this.state.cards.map(
-              (item, i) => (
-                <Card
-                  image={"url(" + item.data.image + ")"}
-                  key={item.set + separator + item.index}
-                  id={item.set + separator + item.index}
-                  name={item.data.name}
-                  gameState={item.gameState}
-                  onClick={(id) => this.handleClick(item.set, item.index, i, id)} />
-              )
-            )
-          }
+          {this.state.cards.map((item, i) => (
+            <Card
+              image={"url(" + item.data.image + ")"}
+              key={item.set + separator + item.index}
+              id={item.set + separator + item.index}
+              name={item.data.name}
+              gameState={item.gameState}
+              onClick={id => this.handleClick(item.set, item.index, i, id)}
+            />
+          ))}
         </div>
-      </div>
-     );
+      </MuiThemeProvider>
+    );
   }
 }
 
