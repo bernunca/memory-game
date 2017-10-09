@@ -3,6 +3,8 @@ Memory Game
 
 A memory game with Computer Science related topics.
 
+Play here: http://bernunca.github.io/memory-game
+
 ### Runing the game in develop mode
 
 ```bash
@@ -14,6 +16,8 @@ Jogo da Memória
 ==== 
 
 Um jogo da memória com tópicos relacionados à Ciência da Computação.
+
+Para jogar: http://bernunca.github.io/memory-game
 
 ### Runing the game in develop mode
 
@@ -27,7 +31,7 @@ Precisamos de ajuda para adicionar mais dados e melhor este projeto.
 
 A primeira versão deste jogo contém apenas cientistas da computação e só funciona em português. Planejamos incluir outros tópicos e adicionar outros idiomas.
 
-![Primeira versão](first-version.png "Primeira Versão do Jogo da Memória")
+![Segunda versão](second-version.png "Segunda Versão do Jogo da Memória")
 
 Veja as regras para colaborar com este projeto no tópico [CONTRIBUTING.md (en)](CONTRIBUTING.md). Além de [abrir novos tickets](https://github.com/bernunca/memory-game/issues/new) você pode contribuir atendendo a um dos [tickets abertos](https://github.com/bernunca/memory-game/issues).
 
