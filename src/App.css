@@ -1,3 +1,5 @@
+html { font-family: 'Roboto', sans-serif; }
+
 .row {
     display: flex;
     flex-direction: row;
@@ -5,11 +7,6 @@
     justify-content: center;
     align-items: center;
     align-content: center;
-}
-
-body {
-    padding: 10px;
-    background-image: url(https://2.bp.blogspot.com/-Rdf9i60Zbsc/Ulm-BUtYbYI/AAAAAAAAFVM/mmZ265JX1rI/s1600/blue-on-white-background-pattern.jpg);
 }
 
 .card {
