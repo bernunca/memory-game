@@ -14,8 +14,10 @@ class App extends Component {
     var cards = [];
 
     for (let i in Data.cards) {
-      cards.push({ set: "a", index: i, data: Data.cards[i], gameState: 1 });
-      cards.push({ set: "b", index: i, data: Data.cards[i], gameState: 1 });
+      let preLoadedImage = new Image();
+      preLoadedImage.src = Data.cards[i].image;
+      cards.push({ set: "a", index: i, data: Data.cards[i], gameState: 1, preLoadedImage });
+      cards.push({ set: "b", index: i, data: Data.cards[i], gameState: 1, preLoadedImage });
     }
 
     return shuffle(cards);
@@ -141,14 +143,16 @@ class App extends Component {
         />
         <div className="row">
           {this.state.cards.map((item, i) => (
+            <div>
             <Card
-              image={"url(" + item.data.image + ")"}
+              image={"url(" + item.preLoadedImage.src + ")"}
               key={item.set + separator + item.index}
               id={item.set + separator + item.index}
               name={item.data.name}
               gameState={item.gameState}
               onClick={id => this.handleClick(item.set, item.index, i, id)}
             />
+            </div>
           ))}
         </div>
       </MuiThemeProvider>

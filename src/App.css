@@ -39,7 +39,6 @@ html { font-family: 'Roboto', sans-serif; }
 .flip .card.flipped {
     -webkit-transform: rotatex(-180deg);
 }
-
 .flip .card {
     -webkit-transform-style: preserve-3d;
     -webkit-transition: 0.5s;
