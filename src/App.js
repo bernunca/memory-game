@@ -28,10 +28,14 @@ class App extends Component {
 
     this.state = {
       name: Data.name,
-      cards: this.generateCards(),
+      cards: null,
       lastCard: null,
       wait: false
     };
+  }
+
+  componentWillMount(){
+    this.setState({cards: this.generateCards()})
   }
 
   handleClick(set, key, index, id) {
