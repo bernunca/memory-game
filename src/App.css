@@ -36,7 +36,6 @@ html { font-family: 'Roboto', sans-serif; }
 }
 
 #winPopup {
-    visibility: hidden;
     color: #fff;
     min-width: 250px;
     margin-left: -125px;
@@ -49,11 +48,6 @@ html { font-family: 'Roboto', sans-serif; }
     left: 50%;
     bottom: 30px;
     font-size: 17px;
-}
-
-#winPopup.showDiv {
-    visibility: visible;
-		min-width: 250px;
 }
 
 /*

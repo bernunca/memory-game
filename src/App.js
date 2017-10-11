@@ -160,9 +160,13 @@ class App extends Component {
             />
           ))}
         </div>
-        <div id="winPopup" className={this.state.hasWon ? "showDiv" : ""}>
-            Você venceu!!
+        { this.state.hasWon ?
+        <div id="winPopup">
+            Você venceu!
         </div>
+        :
+        ""
+        }
       </MuiThemeProvider>
     );
   }
