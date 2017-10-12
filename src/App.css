@@ -4,9 +4,10 @@ html { font-family: 'Roboto', sans-serif; }
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     align-content: center;
+
 }
 
 .card {
@@ -17,7 +18,7 @@ html { font-family: 'Roboto', sans-serif; }
     border: 1px solid #DDDDDD;
     border-radius: 4px;
     box-shadow: #999999 2px 2px 2px;
-    margin: 8px;
+    margin: 20px 2%;
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
@@ -35,6 +36,21 @@ html { font-family: 'Roboto', sans-serif; }
     /*display: none;*/
 }
 
+#winPopup {
+    color: #fff;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
 /*
 .flip .card.flipped {
     -webkit-transform: rotatex(-180deg);
@@ -45,3 +61,10 @@ html { font-family: 'Roboto', sans-serif; }
     -webkit-transform: rotatex(-180deg);
 }
 */
+
+@media (min-width: 1600px) {
+  .card {
+      margin: 20px 4%;
+
+  }
+}

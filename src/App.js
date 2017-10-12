@@ -13,7 +13,11 @@ class App extends Component {
     this.state = {
       cards: props.cards,
       lastCard: null,
-      wait: false
+      wait: false,
+      score: 0,
+      errors: 0,
+      maximumScore: Object.keys(Data.cards).length, // Pegando o número de cartas
+      hasWon: false
     };
   }
   
@@ -46,15 +50,19 @@ class App extends Component {
         400
       );
 
-      // TODO: Contar acertos
-      // TODO: Checar vitória
+      let newScore = this.state.score +1;
+      this.setState({score: newScore});
+      if (newScore === this.state.maximumScore){
+        this.setState({hasWon: true});
+      }
 
       return;
     }
 
     setTimeout(
       function() {
-        // TODO: Contar erros
+        let currentErrors = this.state.errors;
+        this.setState({errors: currentErrors+1});
         this.hideCards(index);
         this.clearLastCard();
       }.bind(this),
@@ -122,7 +130,9 @@ class App extends Component {
       <MuiThemeProvider>
         <AppBar
           showMenuIconButton={false}
+
           title={`Jogo da Memória ${this.props.name}`}
+
         />
         <div className="row">
           {this.state.cards.map((item, i) => (
@@ -138,6 +148,13 @@ class App extends Component {
             </div>
           ))}
         </div>
+        { this.state.hasWon ?
+        <div id="winPopup">
+            Você venceu!
+        </div>
+        :
+        ""
+        }
       </MuiThemeProvider>
     );
   }
