@@ -3,32 +3,15 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import AppBar from "material-ui/AppBar";
 import "./App.css";
 import Card from "./Card.js";
-import Data from "./data/pt_BR/computer-scientists.json";
-import shuffle from "shuffle-array";
 
 let separator = ":";
 
 class App extends Component {
-  generateCards() {
-    // TODO: gerar quantidade menor de cartas do que existe na base
-    var cards = [];
-
-    for (let i in Data.cards) {
-      let preLoadedImage = new Image();
-      preLoadedImage.src = Data.cards[i].image;
-      cards.push({ set: "a", index: i, data: Data.cards[i], gameState: 1, preLoadedImage });
-      cards.push({ set: "b", index: i, data: Data.cards[i], gameState: 1, preLoadedImage });
-    }
-
-    return shuffle(cards);
-  }
-
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
-      name: Data.name,
-      cards: null,
+      cards: props.cards,
       lastCard: null,
       wait: false,
       score: 0,
@@ -37,11 +20,7 @@ class App extends Component {
       hasWon: false
     };
   }
-
-  componentWillMount(){
-    this.setState({cards: this.generateCards()})
-  }
-
+  
   handleClick(set, key, index, id) {
     if (this.state.cards[index].gameState > 2 || this.state.wait) {
       return;
@@ -151,8 +130,9 @@ class App extends Component {
       <MuiThemeProvider>
         <AppBar
           showMenuIconButton={false}
-          title={`Jogo da Memória ${this.state.name} -
-                  Pontuação: ${this.state.score} / ${this.state.maximumScore} - Erros: ${this.state.errors}`}
+
+          title={`Jogo da Memória ${this.props.name}`}
+
         />
         <div className="row">
           {this.state.cards.map((item, i) => (
