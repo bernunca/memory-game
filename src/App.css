@@ -36,6 +36,21 @@ html { font-family: 'Roboto', sans-serif; }
     /*display: none;*/
 }
 
+#winPopup {
+    color: #fff;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
 /*
 .flip .card.flipped {
     -webkit-transform: rotatex(-180deg);
@@ -46,7 +61,6 @@ html { font-family: 'Roboto', sans-serif; }
     -webkit-transform: rotatex(-180deg);
 }
 */
-
 
 @media (min-width: 1600px) {
   .card {
