@@ -55,16 +55,12 @@ class App extends Component {
       let newScore = this.state.score +1;
       this.setState({score: newScore});
       let searchKey = lastCard.key;
-      console.log(searchKey);
-
 
       for(let i = 0; i < this.state.cards.length; i++){
         if(this.state.cards[i].index === key ){
-          console.log(this.state.cards[i]);
           this.setState({scoreCardInfo : this.state.cards[i].data.description, hasScored: true})
         }
       }
-
 
       if (newScore === this.state.maximumScore){
         this.setState({hasWon: true});
@@ -145,7 +141,7 @@ class App extends Component {
         <AppBar
           showMenuIconButton={false}
 
-                 title={`Jogo da Memória ${this.state.name}
+                 title={`Jogo da Memória ${this.props.name}
                   - Pontuação: ${this.state.score} / ${this.state.maximumScore}
                   - Erros: ${this.state.errors}`}
 
