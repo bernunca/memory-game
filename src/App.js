@@ -13,14 +13,16 @@ class App extends Component {
     this.state = {
       cards: props.cards,
       lastCard: null,
+      scoreCardInfo: "",
       wait: false,
       score: 0,
       errors: 0,
-      maximumScore: Object.keys(props.cards).length, // Pegando o número de cartas
-      hasWon: false
+      maximumScore: Object.keys(props.cards).length/2, // Pegando o número de cartas -> Pares!
+      hasWon: false,
+      hasScored: false
     };
   }
-  
+
   handleClick(set, key, index, id) {
     if (this.state.cards[index].gameState > 2 || this.state.wait) {
       return;
@@ -52,6 +54,18 @@ class App extends Component {
 
       let newScore = this.state.score +1;
       this.setState({score: newScore});
+      let searchKey = lastCard.key;
+      console.log(searchKey);
+
+
+      for(let i = 0; i < this.state.cards.length; i++){
+        if(this.state.cards[i].index === key ){
+          console.log(this.state.cards[i]);
+          this.setState({scoreCardInfo : this.state.cards[i].data.description, hasScored: true})
+        }
+      }
+
+
       if (newScore === this.state.maximumScore){
         this.setState({hasWon: true});
       }
@@ -131,7 +145,9 @@ class App extends Component {
         <AppBar
           showMenuIconButton={false}
 
-          title={`Jogo da Memória ${this.props.name}`}
+                 title={`Jogo da Memória ${this.state.name}
+                  - Pontuação: ${this.state.score} / ${this.state.maximumScore}
+                  - Erros: ${this.state.errors}`}
 
         />
         <div className="row">
@@ -148,6 +164,14 @@ class App extends Component {
             </div>
           ))}
         </div>
+        { this.state.hasScored ?
+        <div id="scorePopup" onClick={() => this.setState({hasScored:false})}>
+          {this.state.scoreCardInfo.toString()}
+        </div>
+        :
+        ""
+        }
+
         { this.state.hasWon ?
         <div id="winPopup">
             Você venceu!
