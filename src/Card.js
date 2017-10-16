@@ -27,8 +27,8 @@ class Card extends Component {
     }
 
     return (
-      <div className="card" onClick={this.handleClick} style={{backgroundImage: image }}>
-        {this.props.gameState === 2 ? <div className="card-title">{this.props.name}</div>: ''}
+      <div className="bmg-card" onClick={this.handleClick} style={{backgroundImage: image }}>
+        {this.props.gameState === 2 ? <div className="bmg-card-title">{this.props.name}</div>: ''}
       </div>
     );
   }

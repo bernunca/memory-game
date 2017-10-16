@@ -1,6 +1,6 @@
 html { font-family: 'Roboto', sans-serif; }
 
-.row {
+.bmg-row {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -10,7 +10,7 @@ html { font-family: 'Roboto', sans-serif; }
 
 }
 
-.card {
+.bmg-card {
     width: 160px;
     height: 200px;
     object-position: center;
@@ -28,7 +28,7 @@ html { font-family: 'Roboto', sans-serif; }
     background-color: #FEFEFE;
 }
 
-.card-title {
+.bmg-card-title {
     font-size: 2em;
     color: white;
     text-shadow: #333333 2px 2px 2px;
@@ -63,7 +63,7 @@ html { font-family: 'Roboto', sans-serif; }
 */
 
 @media (min-width: 1600px) {
-  .card {
+  .bmg-card {
       margin: 20px 4%;
 
   }
