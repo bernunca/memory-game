@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import AppBar from "material-ui/AppBar";
-import "./App.css";
+import "materialize-css/dist/css/materialize.min.css";
+import './App.css';
 import Card from "./Card.js";
 
 let separator = ":";
@@ -46,15 +47,13 @@ class App extends Component {
     if (lastCard.set !== set && lastCard.key === key) {
       setTimeout(
         function() {
+          this.updateScoreCount();
+          this.checkVictory();
           this.removeCards(index);
           this.clearLastCard();
         }.bind(this),
         400
       );
-
-      let newScore = this.state.score +1;
-      this.setState({score: newScore});
-      let searchKey = lastCard.key;
 
       for(let i = 0; i < this.state.cards.length; i++){
         if(this.state.cards[i].index === key ){
@@ -62,22 +61,34 @@ class App extends Component {
         }
       }
 
-      if (newScore === this.state.maximumScore){
-        this.setState({hasWon: true});
-      }
 
       return;
     }
 
     setTimeout(
       function() {
-        let currentErrors = this.state.errors;
-        this.setState({errors: currentErrors+1});
+        this.updateErrorCount();
         this.hideCards(index);
         this.clearLastCard();
       }.bind(this),
       400
     );
+  }
+
+  updateErrorCount() {
+    let newErrorsCount = this.state.errors + 1;
+    this.setState({errors: newErrorsCount});
+  }
+
+  updateScoreCount() {
+    let newScoreCount = this.state.score + 1;
+    this.setState({score: newScoreCount});
+  }
+
+  checkVictory() {
+    if (this.state.score === this.state.maximumScore){
+      this.setState({hasWon: true});
+    }
   }
 
   setLastCard(newLastCard) {
@@ -124,41 +135,43 @@ class App extends Component {
   }
 
   enableWait() {
-    let newState = this.state;
-    newState.wait = true;
-    this.setState(newState);
+    this.setState({wait: true});
   }
 
   disableWait() {
-    let newState = this.state;
-    newState.wait = false;
-    this.setState(newState);
+    this.setState({wait: false});
   }
 
   render() {
     return (
-      <MuiThemeProvider>
-        <AppBar
-          showMenuIconButton={false}
+      <div>
+        <MuiThemeProvider>
+          <AppBar
+            showMenuIconButton={false}
+            title={`Jogo da Memória ${this.props.name} - Pares abertos: ${this.state.score + this.state.errors}`}
+          />
+        </MuiThemeProvider>
 
-                 title={`Jogo da Memória ${this.props.name}
-                  - Pontuação: ${this.state.score} / ${this.state.maximumScore}
-                  - Erros: ${this.state.errors}`}
-
-        />
-        <div className="row">
-          {this.state.cards.map((item, i) => (
-            <div>
-            <Card
-              image={"url(" + item.preLoadedImage.src + ")"}
-              key={item.set + separator + item.index}
-              id={item.set + separator + item.index}
-              name={item.data.name}
-              gameState={item.gameState}
-              onClick={id => this.handleClick(item.set, item.index, i, id)}
-            />
+        <div className="section">
+          <div className="row">
+            <div className="col s12 l12">
+              Clique nas cartas para virá-la. Forme todos os pares para vencer.
             </div>
-          ))}
+          </div>
+          <div className="bmg-row">
+            {this.state.cards.map((item, i) => (
+              <div>
+              <Card
+                image={"url(" + item.preLoadedImage.src + ")"}
+                key={item.set + separator + item.index}
+                id={item.set + separator + item.index}
+                name={item.data.name}
+                gameState={item.gameState}
+                onClick={id => this.handleClick(item.set, item.index, i, id)}
+              />
+              </div>
+            ))}
+          </div>
         </div>
         { this.state.hasScored ?
         <div id="scorePopup" onClick={() => this.setState({hasScored:false})}>
@@ -170,12 +183,13 @@ class App extends Component {
 
         { this.state.hasWon ?
         <div id="winPopup">
-            Você venceu!
+            Você venceu! <br />
+            (Recarregue a página para jogar novamente)
         </div>
         :
         ""
         }
-      </MuiThemeProvider>
+      </div>
     );
   }
 }
