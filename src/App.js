@@ -16,7 +16,7 @@ class App extends Component {
       wait: false,
       score: 0,
       errors: 0,
-      maximumScore: Object.keys(Data.cards).length, // Pegando o número de cartas
+      maximumScore: Object.keys(props.cards).length, // Pegando o número de cartas
       hasWon: false
     };
   }
