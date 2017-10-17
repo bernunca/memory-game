@@ -62,8 +62,22 @@ html { font-family: 'Roboto', sans-serif; }
   bottom: 30px;
   font-size: 17px;
 }
-#scorePopup:hover {
+
+.closePopup:hover {
   cursor: pointer;
+}
+
+.closePopup {
+  display: flex;
+  margin: auto auto;
+  justify-content: center;
+  color: #fff;
+  width: 35px;
+  height: 35px;
+  background-color: #333;
+  border-radius: 30px;
+  border-color: #ecf0f1;
+  border-style: solid;
 }
 
 /*

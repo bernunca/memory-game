@@ -174,7 +174,8 @@ class App extends Component {
           </div>
         </div>
         { this.state.hasScored ?
-        <div id="scorePopup" onClick={() => this.setState({hasScored:false})}>
+        <div id="scorePopup" >
+          <button className="closePopup" onClick={() => this.setState({hasScored:false})}>X</button>
           {this.state.scoreCardInfo.toString()}
         </div>
         :
