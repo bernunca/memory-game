@@ -14,14 +14,16 @@ class App extends Component {
     this.state = {
       cards: props.cards,
       lastCard: null,
+      scoreCardInfo: "",
       wait: false,
       score: 0,
       errors: 0,
-      maximumScore: Object.keys(props.cards).length / 2, // Pegando o número de cartas
-      hasWon: false
+      maximumScore: Object.keys(props.cards).length/2, // Pegando o número de cartas -> Pares!
+      hasWon: false,
+      hasScored: false
     };
   }
-  
+
   handleClick(set, key, index, id) {
     if (this.state.cards[index].gameState > 2 || this.state.wait) {
       return;
@@ -52,6 +54,13 @@ class App extends Component {
         }.bind(this),
         400
       );
+
+      for(let i = 0; i < this.state.cards.length; i++){
+        if(this.state.cards[i].index === key ){
+          this.setState({scoreCardInfo : this.state.cards[i].data.description, hasScored: true})
+        }
+      }
+
 
       return;
     }
@@ -164,6 +173,14 @@ class App extends Component {
             ))}
           </div>
         </div>
+        { this.state.hasScored ?
+        <div id="scorePopup" >
+          <button className="closePopup" onClick={() => this.setState({hasScored:false})}>X</button>
+          {this.state.scoreCardInfo.toString()}
+        </div>
+        :
+        ""
+        }
 
         { this.state.hasWon ?
         <div id="winPopup">
