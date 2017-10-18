@@ -4,6 +4,8 @@ import AppBar from "material-ui/AppBar";
 import "materialize-css/dist/css/materialize.min.css";
 import './App.css';
 import Card from "./Card.js";
+import ShuffleCards from "./ShuffleCards.js";
+import Data from "./data/pt_BR/computer-scientists.json";
 
 let separator = ":";
 
@@ -22,6 +24,12 @@ class App extends Component {
       hasWon: false,
       hasScored: false
     };
+
+    this.baseState = this.state;
+  }
+
+  componentDidMount(){
+    console.log(this.state)
   }
 
   handleClick(set, key, index, id) {
@@ -142,6 +150,10 @@ class App extends Component {
     this.setState({wait: false});
   }
 
+  resetForm = () => {
+    this.setState({...this.baseState, cards: ShuffleCards(Data.cards)});
+  }
+
   render() {
     return (
       <div>
@@ -151,7 +163,6 @@ class App extends Component {
             title={`Jogo da Memória ${this.props.name} - Pares abertos: ${this.state.score + this.state.errors}`}
           />
         </MuiThemeProvider>
-
         <div className="section">
           <div className="row">
             <div className="col s12 l12">
@@ -183,9 +194,9 @@ class App extends Component {
         }
 
         { this.state.hasWon ?
-        <div id="winPopup">
+        <div id="winPopup" onClick={() => this.resetForm()}>
             Você venceu! <br />
-            (Recarregue a página para jogar novamente)
+            (Clique aqui para jogar novamente)
         </div>
         :
         ""
