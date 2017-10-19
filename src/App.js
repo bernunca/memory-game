@@ -25,7 +25,7 @@ class App extends Component {
       hasScored: false
     };
 
-    this.baseState = this.state;
+    this.baseState = {...this.state};
   }
 
   componentDidMount(){
@@ -151,7 +151,10 @@ class App extends Component {
   }
 
   resetForm = () => {
-    this.setState({...this.baseState, cards: ShuffleCards(Data.cards)});
+    this.setState({
+      ...this.baseState,
+      cards: ShuffleCards(Data.cards),
+    });
   }
 
   render() {
